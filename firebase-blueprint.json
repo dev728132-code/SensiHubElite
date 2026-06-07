@@ -1,0 +1,133 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "User Profile",
+      "description": "User profile with membership status.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "photoURL": {
+          "type": "string"
+        },
+        "membershipStatus": {
+          "type": "string"
+        },
+        "lastLogin": {
+          "type": "number"
+        },
+        "createdAt": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "userId",
+        "displayName",
+        "photoURL",
+        "membershipStatus",
+        "lastLogin",
+        "createdAt"
+      ]
+    },
+    "historyItem": {
+      "title": "History Item",
+      "description": "A customized or purchased sensitivity configuration.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "itemType": {
+          "type": "string",
+          "description": "'used', 'saved', or 'purchased'"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "game": {
+          "type": "string"
+        },
+        "configName": {
+          "type": "string"
+        },
+        "sensitivityData": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "userId",
+        "itemType",
+        "brand",
+        "game",
+        "configName",
+        "sensitivityData",
+        "createdAt"
+      ]
+    },
+    "paymentRequest": {
+      "title": "Payment Request",
+      "description": "User submitted payment for manual verification.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "planName": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "number"
+        },
+        "utrNumber": {
+          "type": "string"
+        },
+        "mobileNumber": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "userId",
+        "userName",
+        "planName",
+        "amount",
+        "utrNumber",
+        "mobileNumber",
+        "status",
+        "createdAt"
+      ]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "userProfile",
+      "description": "User's public profile and membership."
+    },
+    "users/{userId}/history/{historyId}": {
+      "schema": "historyItem",
+      "description": "User's saved, used, or purchased sensitivity configurations."
+    },
+    "users/{userId}/payments/{paymentId}": {
+      "schema": "paymentRequest",
+      "description": "User's payment verification requests."
+    }
+  }
+}

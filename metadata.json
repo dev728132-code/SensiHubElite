@@ -1,0 +1,8 @@
+{
+  "name": "Customize Your Gaming Experience",
+  "description": "A high-performance gaming sensitivity repository for mobile esports. Features device-specific settings, premium configurations, and a personalized profile with history tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
